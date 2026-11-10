@@ -1,0 +1,8 @@
+mcpServers:
+  - name: gh-action-inspector
+    command: npx
+    args:
+      - -y
+      - gh-action-inspector@latest
+    env:
+      GITHUB_TOKEN: "<YOUR_GITHUB_TOKEN>"

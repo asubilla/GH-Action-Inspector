@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+coverage/
+*.tsbuildinfo
+
+# Logs and local runtime artifacts
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Environment and secrets — never commit real credentials
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+!tests/fixtures/**/*.key
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+
+# Package manager misc
+.tgz
+.npm/

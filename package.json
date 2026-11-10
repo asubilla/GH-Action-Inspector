@@ -1,0 +1,80 @@
+{
+  "name": "gh-action-inspector",
+  "version": "0.1.0",
+  "description": "GH Action Inspector: a read-only MCP server for inspecting failed GitHub Actions runs, jobs, redacted log excerpts, deterministic failure analysis, and comparisons.",
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "github-actions",
+    "ci",
+    "triage",
+    "debugging",
+    "typescript"
+  ],
+  "license": "MIT",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asubilla/GH-Action-Inspector.git"
+  },
+  "bugs": {
+    "url": "https://github.com/asubilla/GH-Action-Inspector/issues"
+  },
+  "homepage": "https://github.com/asubilla/GH-Action-Inspector#readme",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "bin": {
+    "gh-action-inspector": "./dist/cli.js"
+  },
+  "main": "./dist/server.js",
+  "types": "./dist/server.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/server.d.ts",
+      "import": "./dist/server.js"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "SECURITY.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "dev": "tsx watch src/cli.ts",
+    "start": "node dist/cli.js",
+    "demo": "tsx demo/demo.ts",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
+    "verify": "npm run format:check && npm run lint && npm run typecheck && npm run test && npm run build",
+    "inspector": "npx --yes @modelcontextprotocol/inspector@2.14.0 node dist/cli.js",
+    "prepublishOnly": "npm run verify"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/node": "^24.19.2",
+    "@vitest/coverage-v8": "^5.1.0",
+    "eslint": "^10.14.0",
+    "globals": "^17.14.0",
+    "prettier": "^3.9.10",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.72.2",
+    "vitest": "^5.1.0"
+  }
+}

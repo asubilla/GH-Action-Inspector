@@ -1,0 +1,12 @@
+{
+  "context_servers": {
+    "gh-action-inspector": {
+      "source": "custom",
+      "command": "npx",
+      "args": ["-y", "gh-action-inspector@latest"],
+      "env": {
+        "GITHUB_TOKEN": "<YOUR_GITHUB_TOKEN>"
+      }
+    }
+  }
+}
